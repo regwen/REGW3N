@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <!-- Performance monitoring -->
+    <script>
+    window.performance && window.performance.mark && window.performance.mark('pageStart');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <title>REGW3N - Split Personality</title>
+    <meta name="description" content="REGW3N - Dark Phonk & Hyperpop Artist from Prague. Experience both sides of my musical personality.">
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="profilovka.png">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://regw3n.com/">
+    <meta property="og:title" content="REGW3N - Split Personality">
+    <meta property="og:description" content="Experience both sides: Dark Phonk & Hyperpop">
+    <meta property="og:image" content="profilovka.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://regw3n.com/">
+    <meta name="twitter:title" content="REGW3N - Split Personality">
+    <meta name="twitter:description" content="Experience both sides: Dark Phonk & Hyperpop">
+    <meta name="twitter:image" content="profilovka.png">
+    <!-- Cache buster - updated 2025-07-19 02:05 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about-styles.css">
+    <link rel="stylesheet" href="loading-screen.css">
+    <link rel="preload" as="image" href="profilovka.png">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#8b00ff">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="split left"></div>
+        <div class="split right"></div>
+        <div class="loading-logo">
+            <span class="logo-part reg">REG</span>
+            <span class="logo-part w3n">W3N</span>
+        </div>
+    </div>
+    <!-- Theme transition overlay -->
+    <div class="theme-transition" id="themeTransition"></div>
+
+    <!-- Split Hero Section -->
+<section class="split-hero" id="hero">
+  <!-- Choose Your Side - přesunuto do hero sekce -->
+  <div class="choose-side-header">Choose Your Side</div>
+
+  <!-- Left Side - REG -->
+  <div class="hero-half hero-left neutral" id="heroLeft">
+    <div class="hero-bg phonk-gradient"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">REG</h1>
+      <p class="hero-subtitle">DARK PHONK</p>
+    </div>
+    <div class="scroll-hint" id="leftScrollHint">
+      <a href="#content" class="scroll-text" tabindex="-1">Step into the night</a>
+    </div>
+  </div>
+
+  <!-- Center Switch -->
+  <div class="hero-switch-container" id="switchContainer">
+    <div class="switch-track" id="heroSwitch">
+      <div class="switch-knob" id="switchKnob"></div>
+    </div>
+    <div class="switch-labels">
+      <span class="switch-label left active" id="leftLabel">PHONK</span>
+      <span class="switch-label right" id="rightLabel">HYPERPOP</span>
+    </div>
+  </div>
+
+  <!-- Right Side - W3N -->
+  <div class="hero-half hero-right neutral" id="heroRight">
+    <div class="hero-bg hyperpop-gradient"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">W3N</h1>
+      <p class="hero-subtitle">HYPERPOP CHAOS</p>
+    </div>
+    <div class="scroll-hint" id="rightScrollHint">
+      <a href="#content" class="scroll-text" tabindex="-1">Enter the hyperverse</a>
+    </div>
+  </div>
+</section>
+
+<!-- Back to Top Button - Global placement -->
+<button class="back-to-top" id="backToTop" aria-label="Scroll back to top"></button>
+
+<!-- Scroll Progress Ring -->
+<div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <svg class="progress-ring" aria-hidden="true">
+    <circle class="progress-ring-circle"></circle>
+    <circle class="progress-ring-progress" id="progressRingProgress"></circle>
+  </svg>
+  <div class="progress-ring-text" id="progressText">0%</div>
+</div>
+
+<!-- Content Sections -->
+<div class="content-sections" id="content">
+  <!-- Floating Navigation - appears after scroll -->
+  <nav class="floating-nav" id="floatingNav">
+    <div class="nav-floating-content">
+      <div class="nav-logo">REGW3N</div>
+      <div class="nav-links">
+        <a href="#about">ABOUT</a>
+        <a href="#music">MUSIC</a>
+        <a href="#socials">SOCIALS</a>
+      </div>
+      <div class="mode-switch">
+        <span id="leftLabelNav" class="switch-label-nav active">PHONK</span>
+        <div class="hero-switch-nav" id="heroSwitchNav">
+          <div class="switch-knob-nav" id="switchKnobNav"></div>
+        </div>
+        <span id="rightLabelNav" class="switch-label-nav">HYPERPOP</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Countdown Section -->
+  <section class="countdown-section" id="countdown">
+    <!-- Multi-Column Content Grid -->
+    <div class="countdown-grid">
+      <!-- Countdown Column -->
+      <div class="grid-column countdown-column">
+        <div class="column-card">
+          <h2 class="countdown-title">NEW RELEASE</h2>
+          <p class="countdown-subtitle">The darkness awakens soon</p>
+          <div class="countdown-timer" id="countdownTimer">
+            <div class="countdown-item">
+              <div class="countdown-number" id="days">--</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="hours">--</div>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="minutes">--</div>
+              <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="seconds">--</div>
+              <div class="countdown-label">Seconds</div>
+            </div>
+          </div>
+          <div class="countdown-message">
+            <p>⚡ BE READY ⚡</p>
+            <p class="message-sub">Something big is coming...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Track Preview Column -->
+      <div class="grid-column preview-column">
+        <div class="column-card">
+          <h3 class="card-title">Upcoming Track</h3>
+          <div class="track-preview">
+            <div class="track-artwork">
+              <div class="artwork-placeholder">
+                <div class="vinyl-disc"></div>
+              </div>
+            </div>
+            <div class="track-info">
+              <h4 class="track-name">UNFIT FOR THIS</h4>
+              <p class="track-genre">Phonk & Hyperpop</p>
+              <div class="waveform-preview">
+                <div class="wave-bar" style="height: 20%"></div>
+                <div class="wave-bar" style="height: 40%"></div>
+                <div class="wave-bar" style="height: 60%"></div>
+                <div class="wave-bar" style="height: 80%"></div>
+                <div class="wave-bar" style="height: 45%"></div>
+                <div class="wave-bar" style="height: 70%"></div>
+                <div class="wave-bar" style="height: 30%"></div>
+                <div class="wave-bar" style="height: 90%"></div>
+              </div>
+              <button class="presave-btn">Pre-save Soon</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Stats Column -->
+      <div class="grid-column stats-column">
+        <div class="column-card">
+          <h3 class="card-title">Social Stats</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number" data-count="200">200+</div>
+              <div class="stat-label">Monthly Listeners</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-count="1000">1000+</div>
+              <div class="stat-label">Total Streams</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-trend">📈 Growing Daily</div>
+            </div>
+          </div>
+          <a
+            href="https://open.spotify.com/artist/3oK8ihEUBH3fvH5MyZS1Wm"
+            target="_blank"
+            class="follow-btn"
+            >Follow on Spotify</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Steps Timeline -->
+    <div class="progress-timeline">
+      <h3 class="timeline-title">My Journey</h3>
+      <div class="progress-steps">
+        <div class="progress-line">
+          <div class="progress-fill"></div>
+        </div>
+
+        <div class="step completed" data-step="1">
+          <div class="step-number">1</div>
+          <div class="step-icon">🎵</div>
+          <div class="step-content">
+            <h4 class="step-title">STARTED</h4>
+            <p class="step-description">
+              Founded REGW3N & first Spotify upload
+            </p>
+            <span class="step-date">6/2025</span>
+            <div class="step-status">✅ DONE</div>
+          </div>
+        </div>
+
+        <div class="step completed" data-step="2">
+          <div class="step-number">2</div>
+          <div class="step-icon">🔥</div>
+          <div class="step-content">
+            <h4 class="step-title">GROWING</h4>
+            <p class="step-description">
+              Hit 50+ monthly listeners & 500+ streams
+            </p>
+            <span class="step-date">7/2025</span>
+            <div class="step-status">✅ DONE</div>
+          </div>
+        </div>
+
+        <div class="step completed" data-step="3">
+          <div class="step-number">3</div>
+          <div class="step-icon">📈</div>
+          <div class="step-content">
+            <h4 class="step-title">MILESTONE</h4>
+            <p class="step-description">Reached 200+ monthly listeners</p>
+            <span class="step-date">7/2025</span>
+            <div class="step-status">✅ DONE</div>
+          </div>
+        </div>
+
+        <div class="step upcoming" data-step="4">
+          <div class="step-number">4</div>
+          <div class="step-icon">🚀</div>
+          <div class="step-content">
+            <h4 class="step-title">NEXT LEVEL</h4>
+            <p class="step-description">New release & bigger audience</p>
+            <span class="step-date">Coming Soon</span>
+            <div class="step-status">⏳ SOON</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="section-content">
+      <h2>ABOUT ME</h2>
+      <div class="about-container">
+        <!-- Artist Image Section -->
+        <div class="artist-image-section">
+          <div class="image-container">
+            <img
+              src="profilovka.png"
+              alt="REGW3N"
+              class="profile-image"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="image-overlay"></div>
+          </div>
+        </div>
+
+        <div class="about-story">
+          <div class="story-paragraph" id="paragraph1">
+            <h3>Who I Am</h3>
+            <p>
+              My name is Filip, I'm 24, born and raised in Prague, Czech Republic. I make music under the name REGW3N – something I started back in 2022 when I needed an outlet to deal with all the chaos in my head. It wasn't about going viral. I just wanted to feel less alone.
+            </p>
+          </div>
+          <div class="story-paragraph" id="paragraph2">
+            <h3>My Inspiration</h3>
+            <p>
+              A lot of my inspiration comes from internet culture, anime aesthetics, and late-night edits that feel like dreams with bass. I've always been drawn to energy, distortion, and emotion – even when it's messy. Those broken digital vibes made me want to create something real.
+            </p>
+          </div>
+          <div class="story-paragraph" id="paragraph3">
+            <h3>The Sound</h3>
+            <p>
+              My sound is a mix of phonk, hyperpop, and glitch – all smashed together, way too fast, sometimes beautiful, sometimes not. I don't try to fit in. I make music that reflects what it feels like to be overwhelmed and alive at the same time.
+            </p>
+          </div>
+        </div>
+        
+        <div style="clear: both;"></div>
+
+        <!-- Motto Section - Special styling -->
+        <div class="motto-section">
+          <div class="motto-container">
+            <div class="motto-quote">
+              <span class="quote-mark">"</span>
+              <span class="motto-text" id="mottoText"
+                >I want to put the Czech Republic on the global music map</span
+              >
+              <span class="quote-mark">"</span>
+            </div>
+            <div class="motto-signature">— REGW3N</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Music Section -->
+  <section class="section" id="music">
+    <div class="section-content">
+      <h2>MUSIC</h2>
+      <div class="spotify-embeds" id="spotifyEmbeds">
+        <!-- Phonk mode embeds - TMAVÉ pro phonk -->
+        <div class="phonk-embeds">
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/1a7ADiSpe9mDDGh8gAeEJO?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/7D01LnSjdaBbek1YMTLh6r?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/1iHaH7rQQsh3WOVghxBvYm?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <!-- Hyperpop mode embeds - BAREVNÉ pro hyperpop -->
+        <div class="hyperpop-embeds">
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/1a7ADiSpe9mDDGh8gAeEJO?utm_source=generator"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/7D01LnSjdaBbek1YMTLh6r?utm_source=generator"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/1iHaH7rQQsh3WOVghxBvYm?utm_source=generator"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Streaming platforms statement -->
+      <div class="streaming-statement">
+        <a href="#socials" class="streaming-link">
+          <p>MORE TRACKS AVAILABLE ON STREAMING PLATFORMS</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Socials Section -->
+  <section class="section" id="socials">
+    <div class="section-content">
+      <h2>SOCIALS</h2>
+      <div class="tracks"></div>
+    </div>
+  </section>
+
+  <!-- Personal Statement Section -->
+  <section
+    class="section"
+    style="padding: 6rem 3rem; background: rgba(0, 0, 0, 0.3); display: flex; align-items: center; justify-content: center; min-height: 100vh;"
+  >
+    <div class="section-content">
+      <div
+        style="max-width: 800px; margin: 0 auto; text-align: center; padding: 3rem 3rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; backdrop-filter: blur(20px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center;"
+      >
+        <p
+          style="font-size: clamp(1.1rem, 2vw, 1.6rem); font-weight: 800; text-transform: uppercase; line-height: 1.3; color: var(--text-color); text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); margin: 0; font-family: var(--font-family); text-align: center; max-width: 100%; overflow-wrap: break-word;"
+        >
+          I CODED THIS WHOLE WEBSITE MYSELF. TOOK ME FOREVER AND NEARLY DROVE ME
+          CRAZY BUT HERE WE ARE. THANKS FOR CHECKING IT OUT
+        </p>
+        <div
+          style="margin-top: 2rem; font-size: 1.2rem; color: var(--accent-color); font-weight: 600; text-transform: uppercase; text-align: center;"
+        >
+          — FILIP / REGW3N
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer
+    style="padding: 2rem; text-align: center; background: rgba(0, 0, 0, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.1);"
+  >
+    <p
+      style="font-size: 0.9rem; color: var(--text-color); opacity: 0.6; margin: 0; font-family: var(--font-family);"
+    >
+      coded & designed by REGW3N
+    </p>
+  </footer>
+  <script src="script.js"></script>
+</div>

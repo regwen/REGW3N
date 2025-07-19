@@ -1,0 +1,68 @@
+/* Loading Screen Styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.loading-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #8b00ff, #4a0080, #2d0050);
+}
+
+.loading-screen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #00ffff, #ff69b4, #ffff00);
+}
+
+.loading-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  transition: gap 1s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+  will-change: transform, gap;
+}
+
+.logo-part {
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.logo-part.reg {
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.logo-part.w3n {
+  font-family: "Space Grotesk", sans-serif;
+  color: #ffffff;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
